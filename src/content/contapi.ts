@@ -41,7 +41,7 @@ export const contapi: Chapter = {
     {
       id: "lpi-messages",
       name: "LPI messages (LPI0001–LPI0006)",
-      what: "The STR message group for Conta PI liquidity: LPI0001 RB/CL → PI, LPI0002 CCME → PI, LPI0003 PI → RB/CL, LPI0004 PI → CCME, LPI0005 configures automatic aportes, LPI0006 reports an automatic transfer.",
+      what: "The STR message group for Conta PI liquidity: LPI0001 RB/CL → PI, LPI0002 CCME → PI, LPI0003 PI → RB/CL, LPI0004 PI → CCME, LPI0005 configures an automatic aporte run after the regular STR close, LPI0006 reports it.",
       why: "These are STR (SPB-format) messages, not ISO 20022 SPI messages, and there is no pacs.009 or camt.050 in the SPI catalogue. In the Conta PI they show up as entries with BkTxCd CAMT/MCOP or CAMT/MDOP and MsgNmId LPI000x.",
       viz: "str-transfers",
       examples: ["LPI0001", "LPI0003", "LPI0005"],
@@ -78,7 +78,7 @@ export const contapi: Chapter = {
     {
       id: "min-operational-limit",
       name: "Limite mínimo de saldo operacional & bloqueio automático",
-      what: "Since 30 March 2026 (Res. BCB 554) a participant can set, in the SPI module of SPB-Web, a floor below which outgoing orders are rejected, and optionally an automatic block of the whole Conta PI when that happens.",
+      what: "Since 30 March 2026 (Res. BCB 554) a participant can set, in the SPI module of SPB-Web, a floor below which outgoing orders are rejected (code DS02 from catálogo 5.13), and optionally an automatic block of the whole Conta PI when that happens.",
       why: "It is a circuit breaker against a compromised system draining the account, part of the security tightening that followed the 2025 incidents. While blocked, receipts, liquidity transfers and queries keep working, and only a manual unblock in SPB-Web releases outgoing payments.",
       viz: "balance-blocking",
       examples: ["Res. BCB 524/2025", "Res. BCB 554/2026", "SPB-Web"],

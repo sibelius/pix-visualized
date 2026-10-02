@@ -30,7 +30,7 @@ export default function Page() {
         <Section
           title="A week in a Conta PI: 24/7 Pix, business-hours STR"
           concepts={["conta-pi", "prefunding", "liquidity-gap", "str"]}
-          intro="A minute-by-minute simulation of one PSP's Conta PI over a week. Pix flows in and out continuously with an intraday profile. Treasury moves money in through the STR (LPI0001) at 06:30, whenever the balance drops below 40% of target during STR hours, and with an extra pre-funding at the Friday close. When available balance runs out, outgoing pacs.008 are rejected with AM04."
+          intro="A minute-by-minute simulation of one PSP's Conta PI over a week. Pix flows in and out continuously with an intraday profile. Treasury moves money in through the STR (LPI0001) at 06:30 and whenever the balance drops below 40% of target during STR hours. Before a closure, an automatic aporte configured with LPI0005 runs right after the regular STR close and loads the extra pre-funding. When available balance runs out, outgoing pacs.008 are rejected with AM04 (DS02 if they hit your operational floor)."
         >
           <LiquidityWeek />
         </Section>
@@ -46,8 +46,9 @@ export default function Page() {
           <div className="mt-4">
             <Callout tone="info">
               The automatic block (Res. BCB 554, art. 26-A) rejects every outgoing order that is still pending, but it does not stop incoming Pix, LPI aportes/retiradas or
-              balance queries (art. 18 §5). Only an operator unblocking in the SPI module of SPB-Web releases it. The rejection reason for an order refused by the
-              operational floor is shown here as AM04; check the current Catálogo for the exact code.
+              balance queries (art. 18 §5). Only an operator unblocking in the SPI module of SPB-Web releases it. Catálogo 5.13 (mandatory from 25/10/2026) adds reject code
+              DS02 for orders refused by the operational floor or by the participant&apos;s own SPI-Web block; plain lack of funds stays AM04. Since 23/07/2026 the same
+              SPI-Web module also holds the mandatory ICOM IP allowlist.
             </Callout>
           </div>
         </Section>
