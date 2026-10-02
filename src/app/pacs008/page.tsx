@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Callout, PageHeader, Section, Takeaways } from "@/components/ui";
 import { ConceptList } from "@/components/ConceptList";
 import { CHAPTER_COLOR } from "@/components/shell/nav";
@@ -19,7 +20,8 @@ export default function Page() {
         checks it, reserves the amount in the payer PSP&apos;s <i>Conta PI</i>, and hands it to the receiver PSP, which checks the account and answers with a{" "}
         <code className="font-mono text-ink">pacs.002</code>. Then the SPI moves the money between the two Conta PI in one irrevocable step and tells both sides.
         All of it has to fit in 40 seconds, counted from the moment the payer tapped confirm. This chapter builds the messages field by field from the SPI catalog
-        (v5.13, pacs.008.spi.1.16 / pacs.002.spi.1.17) and runs the cycle against the clock of the Manual de Tempos.
+        and runs the cycle against the clock of the Manual de Tempos (v7.0). Versions shown are catalog 5.13 (pacs.008.spi.1.16, pacs.002.spi.1.17), published in July
+        2026 and mandatory for the settlement cycle from 25 October 2026 at 12:00; until then 5.12 (pacs.008.spi.1.15, pacs.002.spi.1.16) is the live version.
       </PageHeader>
 
       <div id="builder">
@@ -53,7 +55,7 @@ export default function Page() {
         <Section
           title="pacs.002: statuses and reason codes"
           concepts={["spi-pacs002", "spi-tx-sts", "spi-reason-codes"]}
-          intro="All 45 reason codes allowed in StsRsnInf/Rsn/Cd, with the party the catalog says raises each one. Pick a code to see the pacs.002 that carries it."
+          intro="All 45 reason codes the pacs.002.spi.1.17 XSD allows in StsRsnInf/Rsn/Cd, with the party the catalog says raises each one. DS02 and DU03 are new in 1.17 and are not valid under 5.12. Pick a code to see the pacs.002 that carries it."
         >
           <StatusExplorer />
         </Section>
@@ -91,18 +93,18 @@ export default function Page() {
 
       <Takeaways
         items={[
-          <>
+          <Fragment key="a">
             The SPI <b>reserves before it forwards</b> and <b>settles only after the receiver says ACSP</b>. Liquidity failures never reach the receiver; account failures
             always come from it.
-          </>,
-          <>
+          </Fragment>,
+          <Fragment key="b">
             The 40 s budget is the payer&apos;s experience, so it starts at AccptncDtTm. A slow payer PSP (AB11) or a slow receiver PSP (AB03) both spend it, and only the
             SPI can call time.
-          </>,
-          <>
+          </Fragment>,
+          <Fragment key="c">
             The EndToEndId is the payment. Resending an identical operation is safe and is the official way to recover from a lost answer; reusing the id for something
             else is an error.
-          </>,
+          </Fragment>,
         ]}
       />
       <ConceptList chapter={spi} />
