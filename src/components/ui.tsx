@@ -39,7 +39,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section className="mt-12 first:mt-0">
+    <section className="mt-14 scroll-mt-20">
       <div className="mb-4 max-w-3xl">
         <div className="flex flex-wrap items-center gap-2">
           <h2 className="text-xl font-semibold tracking-tight">{title}</h2>

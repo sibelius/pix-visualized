@@ -40,3 +40,6 @@ body { background: var(--color-bg); color: var(--color-ink); }
 * { scrollbar-width: thin; scrollbar-color: var(--color-line) transparent; }
 
 input[type="range"] { accent-color: var(--color-accent); }
+
+/* Chapter sections are wrapped in <div id>; space them evenly regardless of wrapper. */
+header + div > section:first-child { margin-top: 0; }
