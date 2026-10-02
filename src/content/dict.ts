@@ -113,7 +113,7 @@ export const dict: Chapter = {
     {
       id: "dict-cid",
       name: "CID (content identifier)",
-      what: "HMAC-SHA256 over keyType&key&taxId&name&tradeName&participant&branch&account&accountType, keyed by the 16 bytes of the entry's RequestId.",
+      what: "HMAC-SHA256 over the essential fields joined by '&' (keyType, key, taxId, name, tradeName, participant, branch, account, accountType), keyed by the 16 bytes of the entry's RequestId.",
       why: "Any change to an essential field changes the CID, so two sides can compare entries without exchanging them. Keying by a random RequestId means a CID file cannot be brute-forced back into phone numbers.",
       viz: "sync",
     },

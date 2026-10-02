@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Callout, PageHeader, Section, Takeaways } from "@/components/ui";
 import { ConceptList } from "@/components/ConceptList";
 import { CHAPTER_COLOR } from "@/components/shell/nav";
@@ -24,7 +25,7 @@ export default function Page() {
         Numbers below come from the API spec v2.12.1 and the Manual Operacional do DICT v8.5.
       </PageHeader>
 
-      <div id="keys">
+      <div id="keys" className="scroll-mt-20">
         <Section
           title="Five key types, one normal form"
           concepts={["pix-key", "cpf-check-digits", "alphanumeric-cnpj", "evp-key", "key-limit"]}
@@ -34,7 +35,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="lookup">
+      <div id="lookup" className="mt-14 scroll-mt-20">
         <Section
           title="The lookup: GET /entries/{Key}"
           concepts={["get-entry", "dict-entry", "payer-data-masking"]}
@@ -44,7 +45,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="ratelimit">
+      <div id="ratelimit" className="mt-14 scroll-mt-20">
         <Section
           title="Token buckets against enumeration"
           concepts={["antiscan-bucket", "participant-category", "read-attack"]}
@@ -61,7 +62,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="claims">
+      <div id="claims" className="mt-14 scroll-mt-20">
         <Section
           title="Claims: portability and ownership"
           concepts={["key-portability", "ownership-claim", "claim-periods"]}
@@ -71,7 +72,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="sync">
+      <div id="sync" className="mt-14 scroll-mt-20">
         <Section
           title="Staying in sync: CIDs and the VSync"
           concepts={["dict-cid", "vsync"]}
@@ -81,7 +82,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="statistics">
+      <div id="statistics" className="mt-14 scroll-mt-20">
         <Section
           title="Anti-fraud statistics and their windows"
           concepts={["dict-statistics"]}
@@ -91,7 +92,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="cache">
+      <div id="cache" className="mt-14 scroll-mt-20">
         <Section
           title="Caches, checkKeys and polling"
           concepts={["entry-cache", "check-keys"]}
@@ -103,9 +104,9 @@ export default function Page() {
 
       <Takeaways
         items={[
-          <>Normalize and validate keys locally (mod-11, E.164, lowercase e-mail, alphanumeric CNPJ) before touching the DICT: a typo costs the payer 20 tokens.</>,
-          <>The anti-scan buckets only stay full for lookups that end in a settled payment with the same EndToEndId. Mirror the buckets in your PSP and watch VCD/EOS and the 404 ratio.</>,
-          <>Claims are deadline machines: portability defaults to cancel, ownership defaults to confirm. CIDs and VSync let you prove your copy of the directory matches the DICT in 256 bits.</>,
+          <Fragment key="t0">Normalize and validate keys locally (mod-11, E.164, lowercase e-mail, alphanumeric CNPJ) before touching the DICT: a typo costs the payer 20 tokens.</Fragment>,
+          <Fragment key="t1">The anti-scan buckets only stay full for lookups that end in a settled payment with the same EndToEndId. Mirror the buckets in your PSP and watch VCD/EOS and the 404 ratio.</Fragment>,
+          <Fragment key="t2">Claims are deadline machines: portability defaults to cancel, ownership defaults to confirm. CIDs and VSync let you prove your copy of the directory matches the DICT in 256 bits.</Fragment>,
         ]}
       />
 
