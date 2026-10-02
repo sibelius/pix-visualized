@@ -36,7 +36,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="tls" className="mt-12">
+      <div id="tls">
         <Section
           title="Before HTTP: allowlist, mutual TLS, and what each status code means"
           concepts={["icom-mtls", "icom-ip-allowlist", "icom-persistent-connections", "icom-problem-details"]}
@@ -46,7 +46,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="channels" className="mt-12">
+      <div id="channels">
         <Section
           title="Two channels: primary (CPM) and secondary (CSM)"
           concepts={["icom-channels"]}
@@ -56,7 +56,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="token-bucket" className="mt-12">
+      <div id="token-bucket">
         <Section
           title="Rate limiting: the token bucket behind 429"
           concepts={["icom-token-bucket"]}
@@ -66,7 +66,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="streams" className="mt-12">
+      <div id="streams">
         <Section
           title="Receiving: N long-poll streams racing a queue"
           concepts={["icom-long-polling", "icom-concurrent-streams"]}
@@ -83,7 +83,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="multipart" className="mt-12">
+      <div id="multipart">
         <Section
           title="Batching: multipart/mixed and gzip, measured"
           concepts={["icom-multipart", "icom-gzip", "pi-resourceid"]}
@@ -93,7 +93,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="delivery" className="mt-12">
+      <div id="delivery">
         <Section
           title="At-least-once: cursors, crashes, DELETE and idempotency"
           concepts={["pi-pull-next", "icom-stream-delete", "icom-at-least-once", "icom-idempotency"]}
@@ -103,7 +103,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="echo-errors" className="mt-12">
+      <div id="echo-errors">
         <Section
           title="Echo, rejections and notices: pibr, admi.002, admi.004"
           concepts={["pibr-echo", "admi002-reject", "admi004-notice"]}

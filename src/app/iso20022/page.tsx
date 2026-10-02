@@ -47,7 +47,7 @@ export default function Page() {
       <div id="idempotency">
         <Section
           title="Why the EndToEndId is the idempotency key"
-          concepts={["spi-idempotency"]}
+          concepts={["iso-idempotency"]}
           intro="A PSP that did not get an answer resends. The SPI stores each operation's key with its reply: same key and same content replays the reply, same key and different content is an error."
         >
           <div className="space-y-4">

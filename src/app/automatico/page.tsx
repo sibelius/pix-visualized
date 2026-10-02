@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Callout, PageHeader, Section, Takeaways } from "@/components/ui";
 import { ConceptList } from "@/components/ConceptList";
 import { CHAPTER_COLOR } from "@/components/shell/nav";
@@ -107,18 +108,18 @@ export default function Page() {
 
       <Takeaways
         items={[
-          <>
+          <Fragment key="t1">
             <strong className="text-ink">Authorize once, instruct every cycle.</strong> The pain.009/012 handshake creates shared state in two PSPs. Each pain.013 is then
             checked against it: periodicity, amount, receiver, and a lead time of 2–10 days.
-          </>,
-          <>
+          </Fragment>,
+          <Fragment key="t2">
             <strong className="text-ink">The payer PSP is the gatekeeper.</strong> It alone knows the valor máximo, checks it when the debit is scheduled, settles between
             0h and 8h, and must retry at 18h–21h. If it debits wrongly it refunds the payer from its own money within 24 h.
-          </>,
-          <>
+          </Fragment>,
+          <Fragment key="t3">
             <strong className="text-ink">Every retry is a new instruction.</strong> NTAG (≤ 3 dates in 7 days, only for RR… ids) and RIFL (same day, after a settlement
             failure) each carry a fresh, receiver-generated EndToEndId, because the SPI never settles the same E2E twice.
-          </>,
+          </Fragment>,
         ]}
       />
 

@@ -27,7 +27,7 @@ export default function Page() {
       <div id="life">
         <Section
           title="The life of one Pix"
-          concepts={["spi-system", "arch-conta-pi", "settlement-finality", "manual-de-tempos"]}
+          concepts={["spi-system", "arch-conta-pi", "settlement-finality", "arch-manual-de-tempos"]}
           intro="Every step of a Pix between two direct participants, timed with the Manual de Tempos timestamps t0′ to t6a. Step through it, watch the Conta PI balances, and push a hop past its budget."
         >
           <LifeOfAPix />

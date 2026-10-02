@@ -94,7 +94,7 @@ export const architecture: Chapter = {
       viz: "life",
     },
     {
-      id: "manual-de-tempos",
+      id: "arch-manual-de-tempos",
       name: "Manual de Tempos do Pix",
       what: "Annex IX: hard limits (40 s primary, 45 min secondary, 34 s validation) and SLA percentiles for every hop.",
       why: "It defines the timestamps t0′…t6a every PSP must measure, and the budget each side may spend: payer initiation P95 1.5 s, payee authorization P95 2.3 s, payer experience P99 10 s.",

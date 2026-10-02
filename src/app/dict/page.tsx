@@ -35,7 +35,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="lookup" className="mt-14 scroll-mt-20">
+      <div id="lookup" className="scroll-mt-20">
         <Section
           title="The lookup: GET /entries/{Key}"
           concepts={["get-entry", "dict-entry", "payer-data-masking"]}
@@ -45,7 +45,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="ratelimit" className="mt-14 scroll-mt-20">
+      <div id="ratelimit" className="scroll-mt-20">
         <Section
           title="Token buckets against enumeration"
           concepts={["antiscan-bucket", "participant-category", "read-attack"]}
@@ -62,7 +62,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="claims" className="mt-14 scroll-mt-20">
+      <div id="claims" className="scroll-mt-20">
         <Section
           title="Claims: portability and ownership"
           concepts={["key-portability", "ownership-claim", "claim-periods"]}
@@ -72,7 +72,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="sync" className="mt-14 scroll-mt-20">
+      <div id="sync" className="scroll-mt-20">
         <Section
           title="Staying in sync: CIDs and the VSync"
           concepts={["dict-cid", "vsync"]}
@@ -82,7 +82,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="statistics" className="mt-14 scroll-mt-20">
+      <div id="statistics" className="scroll-mt-20">
         <Section
           title="Anti-fraud statistics and their windows"
           concepts={["dict-statistics"]}
@@ -92,7 +92,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="cache" className="mt-14 scroll-mt-20">
+      <div id="cache" className="scroll-mt-20">
         <Section
           title="Caches, checkKeys and polling"
           concepts={["entry-cache", "check-keys"]}

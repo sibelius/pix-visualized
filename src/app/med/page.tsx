@@ -34,7 +34,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="tracing" className="mt-14 scroll-mt-20">
+      <div id="tracing" className="scroll-mt-20">
         <Section
           title="MED 2.0: following the money across hops"
           concepts={["root-transaction", "tracking-graph", "tracking-parameters", "med-block", "med-analysis", "iprt-layered-refund"]}
@@ -52,7 +52,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="lifecycle" className="mt-14 scroll-mt-20">
+      <div id="lifecycle" className="scroll-mt-20">
         <Section
           title="Recovery, report, refund, marker: the state machines"
           concepts={["funds-recovery", "infraction-report", "med-refund-request", "event-notifications"]}
@@ -62,7 +62,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="selfservice" className="mt-14 scroll-mt-20">
+      <div id="selfservice" className="scroll-mt-20">
         <Section
           title="Autoatendimento: the contest button in the app"
           concepts={["med-self-service", "situation-type", "med-exclusions", "contested-refund"]}
@@ -72,7 +72,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="risk" className="mt-14 scroll-mt-20">
+      <div id="risk" className="scroll-mt-20">
         <Section
           title="Before the next Pix: fraud markers and the risk decision"
           concepts={["fraud-marker", "payer-risk-engine"]}

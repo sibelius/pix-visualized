@@ -59,7 +59,7 @@ export const iso: Chapter = {
       viz: "ids",
     },
     {
-      id: "spi-idempotency",
+      id: "iso-idempotency",
       name: "Idempotency key",
       what: "The per-operation id the SPI and PSPs store with the answer they gave: EndToEndId (pacs.008), OrgnlEndToEndId (pacs.002), RtrId (pacs.004), idSolicitacaoRecorrencia (pain.009)…",
       why: "A PSP in doubt resends; an identical resend gets the stored answer, a different payload under the same key gets an error. Control is per transaction inside a message, with a 24 h window for transfers and returns.",

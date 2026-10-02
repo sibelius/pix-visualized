@@ -18,7 +18,7 @@ export function Sidebar() {
         <Logo />
         <div className="leading-tight">
           <div className="text-sm font-semibold">Pix, visualized</div>
-          <div className="text-xs text-muted">SPI · DICT · ISO 20022 · 14 chapters</div>
+          <div className="text-xs text-muted">SPI · DICT · ISO 20022</div>
         </div>
       </Link>
       <nav className="flex flex-col gap-0.5 overflow-y-auto">

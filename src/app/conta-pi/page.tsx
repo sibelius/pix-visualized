@@ -36,7 +36,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="balance-blocking" className="mt-12">
+      <div id="balance-blocking">
         <Section
           title="Available, blocked, and the 2026 circuit breaker"
           concepts={["saldo-bloqueado", "am04", "min-operational-limit"]}
@@ -54,7 +54,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="str-transfers" className="mt-12">
+      <div id="str-transfers">
         <Section
           title="Moving liquidity: the LPI messages and the STR clock"
           concepts={["lpi-messages", "aporte-window", "redesconto-spi", "str"]}
@@ -64,7 +64,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="remuneration" className="mt-12">
+      <div id="remuneration">
         <Section
           title="What idle money earns: Conta PI remuneration"
           concepts={["contapi-remuneration"]}
@@ -74,7 +74,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="camt-queries" className="mt-12">
+      <div id="camt-queries">
         <Section
           title="Asking the SPI: camt.060 → camt.053 / camt.052 / camt.054"
           concepts={["camt060", "camt053-spi", "camt052-rel", "camt054-entry"]}
@@ -91,7 +91,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="reconciliation" className="mt-12">
+      <div id="reconciliation">
         <Section
           title="Reconciliation game: your ledger vs. what the SPI booked"
           concepts={["conta-pi-reconciliation", "camt052-rel"]}
@@ -101,7 +101,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="accounting-day" className="mt-12">
+      <div id="accounting-day">
         <Section
           title="Which day is it? The SPI accounting date"
           concepts={["data-contabil"]}
@@ -118,7 +118,7 @@ export default function Page() {
         </Section>
       </div>
 
-      <div id="indirect" className="mt-12">
+      <div id="indirect">
         <Section
           title="Settling for others: indirect participants and the liquidante's exposure"
           concepts={["participante-indireto", "liquidante-spi"]}

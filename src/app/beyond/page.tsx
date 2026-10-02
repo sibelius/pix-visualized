@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Callout, PageHeader, Section, Takeaways } from "@/components/ui";
 import { ConceptList } from "@/components/ConceptList";
 import { CHAPTER_COLOR } from "@/components/shell/nav";
@@ -133,9 +134,9 @@ export default function Page() {
 
       <Takeaways
         items={[
-          <>Saque, Troco, tap, schedule and initiation by third parties are codes on the same pacs.008 (<span className="font-mono">Purp</span>, <span className="font-mono">LclInstrm</span>, <span className="font-mono">SvcLvl</span>, <span className="font-mono">InitgPty</span>). Learn the codes and you can read any product.</>,
-          <>Security is mostly asymmetric time: night caps, R$200 on a new phone, increases that take 24–48h while decreases are instant. A coerced user can&apos;t undo the protections quickly.</>,
-          <>The SLA is percentiles per hop with named owners. A receiver PSP that stalls 1% of the time ruins the system-wide p99 without moving the median.</>,
+          <Fragment key="t1">Saque, Troco, tap, schedule and initiation by third parties are codes on the same pacs.008 (<span className="font-mono">Purp</span>, <span className="font-mono">LclInstrm</span>, <span className="font-mono">SvcLvl</span>, <span className="font-mono">InitgPty</span>). Learn the codes and you can read any product.</Fragment>,
+          <Fragment key="t2">Security is mostly asymmetric time: night caps, R$200 on a new phone, increases that take 24–48h while decreases are instant. A coerced user can&apos;t undo the protections quickly.</Fragment>,
+          <Fragment key="t3">The SLA is percentiles per hop with named owners. A receiver PSP that stalls 1% of the time ruins the system-wide p99 without moving the median.</Fragment>,
         ]}
       />
       <ConceptList chapter={beyond} />
