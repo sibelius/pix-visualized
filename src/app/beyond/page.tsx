@@ -15,10 +15,10 @@ export const metadata = { title: "Beyond the basic Pix" };
 const STATUS = [
   { name: "Pix Agendado recorrente", state: "live", note: "Mandatory for PSPs serving individuals (Res. BCB 402/425, 2024)." },
   { name: "Pix Automático", state: "live", note: "Since 16 Jun 2025. See chapter 12." },
-  { name: "Pix por aproximação", state: "live", note: "Via JSR wallets since Feb 2025; native APDN/APES form since Res. BCB 482/2025." },
-  { name: "Pix Parcelado", state: "dropped", note: "BCB gave up regulating it in late 2025 and banned the name; banks sell their own instalment credit." },
-  { name: "Pix Garantido", state: "not launched", note: "Announced on the agenda years ago; no regulation as of Oct 2026." },
-  { name: "Cobrança híbrida", state: "new", note: "Instituted by Res. BCB 587 (18 Sep 2026); check the Manual de Padrões for the technical spec." },
+  { name: "Pix por aproximação", state: "live", note: "Via JSR wallets since Feb 2025; native APDN/APES form since Res. BCB 482/2025; R$500 cap removed 1 Oct 2026 (IN 746); still Android-only (no iPhone NFC access yet)." },
+  { name: "Pix Parcelado", state: "dropped", note: "BCB dropped the plan to regulate it on 4 Dec 2025 and banned the name; banks sell their own instalment credit." },
+  { name: "Pix Garantido (Pix em Garantia)", state: "not launched", note: "No rules published as of Oct 2026; press reports point to 2027." },
+  { name: "Cobrança híbrida (boleto + Pix)", state: "upcoming", note: "Instituted by Res. BCB 587 (18 Sep 2026), effective 1 Feb 2027; the same resolution allows Pix Automático from salary accounts from 1 Jul 2027." },
 ];
 
 export default function Page() {
@@ -71,7 +71,7 @@ export default function Page() {
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-sm font-medium">{s.name}</span>
                     <span
-                      className={`rounded px-1.5 py-px font-mono text-[10.5px] ${s.state === "live" ? "bg-ok/15 text-ok" : s.state === "new" ? "bg-info/15 text-info" : "bg-bad/15 text-bad"}`}
+                      className={`rounded px-1.5 py-px font-mono text-[10.5px] ${s.state === "live" ? "bg-ok/15 text-ok" : s.state === "upcoming" ? "bg-info/15 text-info" : "bg-bad/15 text-bad"}`}
                     >
                       {s.state}
                     </span>

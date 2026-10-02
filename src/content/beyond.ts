@@ -60,7 +60,7 @@ export const beyond: Chapter = {
       id: "pix-parcelado-status",
       name: "Pix Parcelado / Pix Garantido (status)",
       what: "Credit-backed Pix products the BCB put on its agenda. As of Oct 2026 neither exists as a regulated Pix product.",
-      why: "The BCB dropped plans to regulate 'Pix Parcelado' in late 2025 and banned the name; banks still sell their own instalment credit under other names. Pix Garantido was never launched. Watch the Fórum Pix agenda.",
+      why: "The BCB dropped plans to regulate 'Pix Parcelado' on 4 Dec 2025 and banned the name; banks still sell their own instalment credit under other names. Pix Garantido (em Garantia) has no rules yet; press reports point to 2027. Watch the Fórum Pix agenda.",
       viz: "agendado",
     },
     {
