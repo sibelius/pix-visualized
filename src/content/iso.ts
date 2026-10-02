@@ -19,7 +19,7 @@ export const iso: Chapter = {
     {
       id: "spi-envelope",
       name: "SPI Envelope",
-      what: "A non-ISO wrapper <Envelope xmlns=\"https://www.bcb.gov.br/pi/{message}/{version}\"> holding exactly an AppHdr and a Document.",
+      what: "A non-ISO <Envelope> element holding exactly an AppHdr and a Document, in the namespace https://www.bcb.gov.br/pi/{message}/{version}.",
       why: "It lets one XSD validate header and body together, and its namespace pins the message and its SPI version: validate against the wrong version and the whole message fails.",
       viz: "envelope",
     },
