@@ -1,0 +1,29 @@
+{
+  "name": "pix-visualized",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Interactive, low-level visualizations of Pix, Brazil's instant payment system",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  },
+  "engines": { "node": "24.x" },
+  "packageManager": "pnpm@10.9.0"
+}

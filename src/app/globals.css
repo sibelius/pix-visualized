@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0c11;
+  --color-panel: #11141b;
+  --color-panel-2: #171b24;
+  --color-line: #242a38;
+  --color-ink: #e7e9f0;
+  --color-muted: #8a93a8;
+  --color-faint: #5a6275;
+  --color-accent: #32bcad;
+  --color-ok: #34d399;
+  --color-bad: #f87171;
+  --color-warn: #fbbf24;
+  --color-info: #60a5fa;
+
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --animate-flash: flash 900ms ease-out;
+  --animate-rise: rise 400ms ease-out both;
+}
+
+@keyframes flash {
+  0% { box-shadow: 0 0 0 2px var(--color-accent), 0 0 24px 2px color-mix(in srgb, var(--color-accent) 50%, transparent); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+html { color-scheme: dark; }
+body { background: var(--color-bg); color: var(--color-ink); }
+
+::selection { background: color-mix(in srgb, var(--color-accent) 40%, transparent); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--color-line) transparent; }
+
+input[type="range"] { accent-color: var(--color-accent); }
