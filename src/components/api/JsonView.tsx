@@ -22,6 +22,7 @@ export function JsonView({ value, className, maxHeight = 420 }: { value: unknown
   parts.push(<Fragment key={k++}>{text.slice(last)}</Fragment>);
   return (
     <pre
+      data-export-language="json"
       className={clsx("overflow-auto rounded-lg border border-line bg-bg p-3 font-mono text-[11.5px] leading-relaxed break-all whitespace-pre-wrap text-muted", className)}
       style={{ maxHeight }}
     >

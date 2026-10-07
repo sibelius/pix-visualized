@@ -146,7 +146,7 @@ export function SignVerifyLab() {
   const where = !result ? "—" : result.ok ? "valid" : failed?.id.startsWith("ref-") ? "digest step" : failed?.id === "rsa" ? "signature step" : failed?.id === "cert" ? "certificate" : (failed?.label ?? "error");
 
   return (
-    <div className="space-y-4">
+    <div data-export-browser-only={!signed ? "" : undefined} className="space-y-4">
       <Controls>
         <label className="flex items-center gap-2 text-xs text-muted">
           amount (IntrBkSttlmAmt)

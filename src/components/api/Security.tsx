@@ -48,7 +48,7 @@ export function Security() {
   const claims = { iss: "https://pix.example.com", sub: "client_id-991", client_id: "client_id-991", scope: scopes.join(" "), exp: 1791032400, cnf: { "x5t#S256": thumbs.a || "…computing…" } };
 
   return (
-    <div className="space-y-4">
+    <div data-export-browser-only={!thumbs.a ? "" : undefined} className="space-y-4">
       <Controls>
         <span className="text-muted">faults:</span>
         {(

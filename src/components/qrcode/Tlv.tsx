@@ -82,7 +82,7 @@ export function TlvString({
   className?: string;
 }) {
   return (
-    <div className={clsx("font-mono text-[13px] leading-6 break-all", className)}>
+    <div data-export-language="text" className={clsx("font-mono text-[13px] leading-6 break-all", className)}>
       {nodes.map((n) => (
         <Seg key={n.path} n={n} hover={hover} setHover={setHover} />
       ))}

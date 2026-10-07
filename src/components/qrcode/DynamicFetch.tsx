@@ -52,7 +52,7 @@ export function DynamicFetch() {
   const bcb = BCB_SAMPLE_JWS.split(".");
 
   return (
-    <div className="space-y-4">
+    <div data-export-browser-only={!res ? "" : undefined} className="space-y-4">
       <Controls>
         <span className="inline-flex items-center gap-2 text-muted">
           host

@@ -2,25 +2,29 @@
 
 import type { ReactNode } from "react";
 import clsx from "clsx";
+import { CopyMarkdown } from "./CopyMarkdown";
 
 export function PageHeader({
   n,
   title,
   color,
   children,
+  exportMarkdown = true,
 }: {
   n: string;
   title: string;
   color?: string;
   children: ReactNode;
+  exportMarkdown?: boolean;
 }) {
   return (
-    <header className="mb-8 max-w-3xl animate-rise">
+    <header data-export-header="" className="mb-8 max-w-3xl animate-rise">
       <div className="mb-2 font-mono text-xs text-accent" style={color ? { color } : undefined}>
         {n}
       </div>
       <h1 className="text-3xl font-semibold tracking-tight text-balance">{title}</h1>
-      <div className="mt-3 text-[15px] leading-relaxed text-muted text-pretty">{children}</div>
+      <div data-export-description="" className="mt-3 text-[15px] leading-relaxed text-muted text-pretty">{children}</div>
+      {exportMarkdown && <div className="mt-4"><CopyMarkdown /></div>}
     </header>
   );
 }
@@ -39,8 +43,8 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section className="mt-14 scroll-mt-20">
-      <div className="mb-4 max-w-3xl">
+    <section data-export-section="" data-export-concepts={concepts?.join(" ")} className="mt-14 scroll-mt-20">
+      <div data-export-lead="" className="mb-4 max-w-3xl">
         <div className="flex flex-wrap items-center gap-2">
           <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
           {concepts?.map((p) => (
@@ -53,7 +57,7 @@ export function Section({
             </a>
           ))}
         </div>
-        {intro && <div className="mt-2 text-[15px] leading-relaxed text-muted text-pretty">{intro}</div>}
+        {intro && <div data-export-intro="" className="mt-2 text-[15px] leading-relaxed text-muted text-pretty">{intro}</div>}
       </div>
       {children}
     </section>
@@ -66,15 +70,17 @@ export function Panel({
   children,
   className,
   bodyClassName,
+  exportUnavailable = false,
 }: {
   title?: ReactNode;
   right?: ReactNode;
   children: ReactNode;
   className?: string;
   bodyClassName?: string;
+  exportUnavailable?: boolean;
 }) {
   return (
-    <section className={clsx("flex min-w-0 flex-col rounded-xl border border-line bg-panel", className)}>
+    <section data-export-browser-only={exportUnavailable ? "" : undefined} className={clsx("flex min-w-0 flex-col rounded-xl border border-line bg-panel", className)}>
       {(title || right) && (
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-2.5">
           <h3 className="text-xs font-semibold tracking-wide text-muted uppercase">{title}</h3>
@@ -88,10 +94,10 @@ export function Panel({
 
 export function Takeaways({ items }: { items: ReactNode[] }) {
   return (
-    <ul className="mt-8 grid gap-3 md:grid-cols-3">
+    <ul data-export-takeaways="" className="mt-8 grid gap-3 md:grid-cols-3">
       {items.map((item, i) => (
         <li key={i} className="rounded-xl border border-line bg-panel/60 p-4 text-sm leading-relaxed text-muted">
-          <span className="mb-2 block font-mono text-xs text-accent">takeaway</span>
+          <span data-export-ignore="" className="mb-2 block font-mono text-xs text-accent">takeaway</span>
           {item}
         </li>
       ))}
@@ -100,10 +106,10 @@ export function Takeaways({ items }: { items: ReactNode[] }) {
 }
 
 /** Callout for a single idea worth remembering. */
-export function Callout({ children, tone = "accent" }: { children: ReactNode; tone?: "accent" | "bad" | "ok" | "info" }) {
+export function Callout({ children, tone = "accent", exportExplanation = true }: { children: ReactNode; tone?: "accent" | "bad" | "ok" | "info"; exportExplanation?: boolean }) {
   const color = { accent: "border-accent/50", bad: "border-bad/50", ok: "border-ok/50", info: "border-info/50" }[tone];
   return (
-    <div className={clsx("rounded-xl border-l-2 bg-panel/70 px-4 py-3 text-[15px] leading-relaxed text-muted", color)}>
+    <div data-export-callout={exportExplanation ? "" : undefined} className={clsx("rounded-xl border-l-2 bg-panel/70 px-4 py-3 text-[15px] leading-relaxed text-muted", color)}>
       {children}
     </div>
   );
@@ -220,6 +226,7 @@ export function Segmented<T extends string>({
         <button
           key={o.value}
           type="button"
+          aria-pressed={value === o.value}
           onClick={() => onChange(o.value)}
           className={clsx(
             "rounded-md px-2.5 py-1 font-medium transition",

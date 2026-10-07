@@ -8,3 +8,6 @@ next-env.d.ts
 .vercel
 .next-build
 .claude/
+.markdown-export-manifest.json
+/public/**/*.md
+/public/llms.txt

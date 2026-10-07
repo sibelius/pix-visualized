@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import clsx from "clsx";
-import { flatten, type XLine, type XNode } from "./xml";
+import { flatten, serialize, type XLine, type XNode } from "./xml";
 
 /**
  * Renders an XNode tree as syntax-colored XML. Hovering (or tapping) a line shows the
@@ -60,7 +60,7 @@ export function XmlView({
             <span>{errors ? <span className="text-bad">{errors} rule violation{errors > 1 ? "s" : ""}</span> : `${lines.length} lines`}</span>
           </div>
         )}
-        <div className="overflow-auto py-2 font-mono text-[11.5px] leading-[1.55]" style={{ maxHeight }} onMouseLeave={() => setHover(null)}>
+        <div data-export-code={serialize(root)} data-export-language="xml" className="overflow-auto py-2 font-mono text-[11.5px] leading-[1.55]" style={{ maxHeight }} onMouseLeave={() => setHover(null)}>
           {lines.map((l) => (
             <Line
               key={l.id}
@@ -95,7 +95,7 @@ export function XmlView({
             </p>
           </>
         ) : (
-          <p className="text-faint">Hover a line (tap on mobile) to see what the field means and the rule the catalog attaches to it. Click a container tag to fold or unfold it.</p>
+          <p data-export-ignore="" className="text-faint">Hover a line (tap on mobile) to see what the field means and the rule the catalog attaches to it. Click a container tag to fold or unfold it.</p>
         )}
       </div>
     </div>

@@ -110,7 +110,7 @@ export function Txid() {
         <Stat label="orders client can track" value={known} />
         <Stat label="orphan / unknown cobs" value={orphans} tone={orphans ? (mode === "POST" ? "bad" : "warn") : "good"} hint={mode === "PUT" ? "retry later with the same txid recovers them" : "you never learn their txid"} />
       </div>
-      <Callout tone={mode === "POST" ? "bad" : "ok"}>
+      <Callout tone={mode === "POST" ? "bad" : "ok"} exportExplanation={false}>
         {mode === "PUT"
           ? "With PUT, the txid is the idempotency key: a replay with the same body is a no-op (revisao unchanged) and a later GET /cob/{txid} tells you whether it exists. The Manual says this is exactly why the recebedor should generate the txid."
           : "With POST, every request the PSP processes mints a new txid. When the response is lost you have no handle on the charge: duplicates pile up, and a payer could even be shown one you don't know about. The Manual warns that idempotency cannot be guaranteed when the PSP generates the txid."}

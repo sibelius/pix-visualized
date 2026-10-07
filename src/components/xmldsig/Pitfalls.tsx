@@ -158,7 +158,7 @@ export function Pitfalls() {
             <Stat label="fails at" value={!r ? "…" : r.ok ? "—" : (failed?.id.replace("ref-", "digest ") ?? "?")} tone="neutral" />
           </div>
         </Panel>
-        <Panel title="Real run: sign → transport → verify">
+        <Panel title="Real run: sign → transport → verify" exportUnavailable={!r}>
           <VerifySteps result={r ?? null} pending={!r} />
         </Panel>
       </div>

@@ -86,7 +86,7 @@ export function XmlView({
   const lines = xml.replace(/\n+$/, "").split("\n");
   return (
     <div className={clsx("min-w-0 rounded-lg border border-line bg-bg", className)}>
-      <pre className="overflow-auto p-3 font-mono text-[11.5px] leading-[1.55]" style={{ maxHeight }}>
+      <pre data-export-language="xml" className="overflow-auto p-3 font-mono text-[11.5px] leading-[1.55]" style={{ maxHeight }}>
         {lines.map((ln, idx) => {
           const tag = tagOf(ln);
           const has = tag ? docs[tag] !== undefined : false;
@@ -113,7 +113,7 @@ export function XmlView({
             <span className="font-mono text-[#67e8f9]">{active}</span> · {docs[active]}
           </>
         ) : (
-          <span className="text-faint">{hint}</span>
+          <span data-export-ignore="" className="text-faint">{hint}</span>
         )}
       </div>
     </div>

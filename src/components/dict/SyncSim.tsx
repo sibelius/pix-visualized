@@ -124,7 +124,7 @@ export function SyncSim() {
   const xorDelta = cids && vDict && vPsp ? xorHex(vDict, vPsp) : "";
 
   return (
-    <div className="space-y-4">
+    <div data-export-browser-only={!cids ? "" : undefined} className="space-y-4">
       <Controls>
         <label className="flex items-center gap-2 text-sm text-muted">
           row

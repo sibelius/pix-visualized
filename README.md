@@ -28,6 +28,17 @@ pnpm install
 pnpm dev
 ```
 
+## Markdown for agents
+
+The build generates Markdown directly from the existing React pages and chapter data. No separate documentation source is maintained.
+
+- Read a chapter at `/qrcode.md`, or just one section at `/qrcode/crc.md`.
+- Discover chapters through `/llms.txt`; each chapter links to its sections.
+- Add `.examples` before `.md` for initial examples: `/qrcode/crc.examples.md`. Browser-only computations are left to the interactive page.
+- Use **Copy Markdown** once per chapter page to preview and copy the prebuilt explanation. **Include current example** adds the page's current inputs and output.
+
+`pnpm dev` and `pnpm build` generate the files before starting Next.js. After editing content in a running development server, run `pnpm export:markdown` to refresh the exports. Generated files in `public` are ignored by Git; they are published with the build. Run `pnpm test` to validate conversion and generated documents.
+
 ## Stack
 
 Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS 4 · TypeScript. Hand-written SVG, no chart libraries. Seeded PRNG for deterministic simulations. Fully static.

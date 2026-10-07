@@ -107,7 +107,7 @@ export function XmlView({
   return (
     <div className={clsx("min-w-0", className)}>
       {title && <div className="mb-1 font-mono text-[11px] text-faint">{title}</div>}
-      <div className="overflow-auto rounded-lg border border-line bg-bg/60 py-2 font-mono text-[11.5px] leading-[1.55]" style={{ maxHeight }}>
+      <div data-export-code={toXml(node)} data-export-language="xml" className="overflow-auto rounded-lg border border-line bg-bg/60 py-2 font-mono text-[11.5px] leading-[1.55]" style={{ maxHeight }}>
         {ls.map((l, i) => {
           const n = l.node;
           const known = lookup(glossary, l.path) !== undefined;
@@ -171,7 +171,7 @@ export function XmlView({
             <div>{info ?? <span className="text-faint">Structural element.</span>}</div>
           </>
         ) : (
-          <span className="text-faint">Hover or tap an element to see what it means.</span>
+          <span data-export-ignore="" className="text-faint">Hover or tap an element to see what it means.</span>
         )}
       </div>
     </div>

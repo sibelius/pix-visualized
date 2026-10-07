@@ -41,13 +41,18 @@ function flatten(n: XNode, folded: Set<string>, path = "", depth = 0, out: Row[]
   return out;
 }
 
-function serialize(n: XNode): string {
+function serialize(n: XNode, depth?: number): string {
+  const pad = depth === undefined ? "" : "  ".repeat(depth);
   const attrs = Object.entries(n.attrs ?? {})
     .map(([k, v]) => ` ${k}="${v}"`)
     .join("");
-  if (n.children) return `<${n.tag}${attrs}>${n.children.map(serialize).join("")}</${n.tag}>`;
-  if (n.text === undefined) return `<${n.tag}${attrs}/>`;
-  return `<${n.tag}${attrs}>${n.text}</${n.tag}>`;
+  if (n.children) {
+    const separator = depth === undefined ? "" : "\n";
+    const children = n.children.map((child) => serialize(child, depth === undefined ? undefined : depth + 1)).join(separator);
+    return `${pad}<${n.tag}${attrs}>${separator}${children}${separator}${pad}</${n.tag}>`;
+  }
+  if (n.text === undefined) return `${pad}<${n.tag}${attrs}/>`;
+  return `${pad}<${n.tag}${attrs}>${n.text}</${n.tag}>`;
 }
 
 function maxDepth(n: XNode): number {
@@ -121,7 +126,7 @@ export function EnvelopeExplorer() {
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
         <Panel title={`Envelope · ${doc === "pacs008" ? "pacs.008.spi.1.16" : "pacs.002.spi.1.17"}`} bodyClassName="p-0">
-          <div className="max-h-[560px] overflow-auto py-2 font-mono text-[11.5px] leading-[1.55]" onMouseLeave={() => setHover(null)}>
+          <div data-export-code={serialize(root, 0)} data-export-language="xml" className="max-h-[560px] overflow-auto py-2 font-mono text-[11.5px] leading-[1.55]" onMouseLeave={() => setHover(null)}>
             {rows.map((r) => {
               const isActive = r.path === active && r.kind !== "close";
               const echo = sameValue > 1 && r.node.text === activeText && !isActive;

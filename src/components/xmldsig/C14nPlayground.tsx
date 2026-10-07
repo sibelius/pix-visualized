@@ -100,7 +100,7 @@ function show(s: string, ws: boolean) {
 
 function Side({ title, xml, setXml, out, ws, diffAt, mode }: { mode: C14nMode; title: string; xml: string; setXml: (s: string) => void; out: Out | null; ws: boolean; diffAt: number }) {
   return (
-    <Panel title={title} className="min-w-0">
+    <Panel title={title} className="min-w-0" exportUnavailable={!out}>
       <textarea
         value={xml}
         onChange={(e) => setXml(e.target.value)}
@@ -129,7 +129,7 @@ function Side({ title, xml, setXml, out, ws, diffAt, mode }: { mode: C14nMode; t
           </div>
         </>
       ) : (
-        <div className="mt-1 text-xs text-faint">computing…</div>
+        <div data-export-pending="" className="mt-1 text-xs text-faint">computing…</div>
       )}
     </Panel>
   );

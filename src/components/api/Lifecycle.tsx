@@ -269,7 +269,7 @@ export function Lifecycle() {
           <div className="rounded-lg border border-line bg-panel-2/60 px-3 py-2 font-mono text-[11px] text-muted">
             {trail.length === 0 ? <span className="text-faint">no transitions yet</span> : trail.map((t, i) => <div key={i}>{t}</div>)}
           </div>
-          <Callout tone="info">{m.hint}</Callout>
+          <Callout tone="info" exportExplanation={false}>{m.hint}</Callout>
         </div>
       </div>
       {key === "cob" && (

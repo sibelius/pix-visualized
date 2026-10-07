@@ -5,8 +5,10 @@
   "description": "Interactive, low-level visualizations of Pix, Brazil's instant payment system",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "pnpm export:markdown && next dev",
+    "build": "pnpm export:markdown && next build",
+    "export:markdown": "tsx --tsconfig scripts/tsconfig.json scripts/export-markdown.ts",
+    "test": "tsx --tsconfig scripts/tsconfig.json --test tests/*.test.ts",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
@@ -21,7 +23,9 @@
     "@types/node": "^26.6.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "linkedom": "^0.18.13",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "^5.9.3"
   },
   "engines": { "node": "24.x" },

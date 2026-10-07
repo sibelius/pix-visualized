@@ -43,7 +43,7 @@ export function BoundToken() {
   const ok = sc === "own";
 
   return (
-    <Panel title="API Pix: certificate-bound access token (RFC 8705)">
+    <Panel title="API Pix: certificate-bound access token (RFC 8705)" exportUnavailable={!th}>
       <Segmented
         value={sc}
         onChange={setSc}
@@ -164,7 +164,7 @@ export function QrJwsCheck() {
   const [hdr, pl, sg] = jws.split(".");
 
   return (
-    <Panel title="Payer side: validating a dynamic QR (Manual de Segurança, 4.3)">
+    <Panel title="Payer side: validating a dynamic QR (Manual de Segurança, 4.3)" exportUnavailable={sigOk === null}>
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-xs text-muted">inject</span>
         <select value={fault} onChange={(e) => setFault(e.target.value as QFault)} className="rounded-md border border-line bg-panel-2 px-2 py-1 text-xs text-ink">

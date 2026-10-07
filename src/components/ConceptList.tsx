@@ -15,17 +15,18 @@ export function ConceptList({ chapter }: { chapter: Chapter }) {
           <li
             key={c.id}
             id={c.id}
+            data-export-concept={c.id}
             className="scroll-mt-24 rounded-xl border border-line bg-panel p-4 target:ring-2"
             style={{ ["--tw-ring-color" as string]: color }}
           >
             <div className="flex items-start gap-3">
               <span className="mt-1.5 size-2 shrink-0 rounded-full" style={{ background: color }} />
               <div className="min-w-0">
-                <div className="text-sm font-semibold">{c.name}</div>
+                <div data-export-concept-name="" className="text-sm font-semibold">{c.name}</div>
                 <p className="mt-1 text-sm text-ink/90">{c.what}</p>
                 <p className="mt-1.5 text-[13px] leading-relaxed text-muted">{c.why}</p>
                 {c.examples && c.examples.length > 0 && (
-                  <div className="mt-2 flex flex-wrap gap-1">
+                  <div data-export-concept-examples="" className="mt-2 flex flex-wrap gap-1">
                     {c.examples.map((e) => (
                       <span key={e} className="rounded border border-line bg-panel-2 px-1.5 py-px font-mono text-[10.5px] text-faint">
                         {e}

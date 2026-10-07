@@ -172,7 +172,7 @@ export function Catalog() {
           </Panel>
           {sk && (
             <Panel title={`Document skeleton · ${sk.root}`} right={<span className="font-mono text-[11px] text-faint">{sk.lines.length < sk.total ? `${sk.lines.length} of ${sk.total} nodes` : `${sk.total} nodes`}</span>}>
-              <div className="max-h-[340px] overflow-auto font-mono text-[11px] leading-[1.6]">
+              <div data-export-code={sk.lines.join("\n")} data-export-language="text" className="max-h-[340px] overflow-auto font-mono text-[11px] leading-[1.6]">
                 {sk.lines.map((l, i) => (
                   <SkeletonLine key={i} line={l} />
                 ))}
