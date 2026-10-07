@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { Logo } from "./Logo";
 import { CHAPTER_COLOR, NAV } from "./nav";
+import { GitHubIcon } from "./GitHubIcon";
 
 function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -55,6 +56,15 @@ export function Sidebar() {
       </nav>
       <div className="mt-auto px-2 pt-4 text-xs leading-relaxed text-faint">
         An unofficial, low-level tour of Pix built from the Banco Central do Brasil's public manuals and specs. Every diagram is a live model you can push on.
+        <a
+          href="https://github.com/sibelius/pix-visualized"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-3 flex items-center gap-1.5 text-muted transition-colors hover:text-ink"
+        >
+          <GitHubIcon />
+          sibelius/pix-visualized
+        </a>
       </div>
     </aside>
   );
